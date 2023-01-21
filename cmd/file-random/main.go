@@ -13,6 +13,7 @@ import (
 	"time"
 
 	"github.com/pierrre/errors"
+	"github.com/pierrre/errors/errverbose"
 	filerandom "github.com/pierrre/file-random"
 	"github.com/pkg/browser"
 )
@@ -94,5 +95,5 @@ func buildOptions(fl *flags, l *log.Logger) []filerandom.Option {
 }
 
 func handleError(lf func(format string, v ...any), err error) {
-	lf("Error: %v", err)
+	lf("Error: %v", errverbose.Formatter(err))
 }
