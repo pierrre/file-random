@@ -1,5 +1,5 @@
-github.com/pierrre/errors v0.2.0 h1:XwjqoWxBIPBkscvTDZSnoCjY3N6P34FzozUy4TEcwNk=
-github.com/pierrre/errors v0.2.0/go.mod h1:uTnPWUJFDsLhzQtkwOgXgjWVSf9E47oRV6PainbK1gQ=
+github.com/pierrre/errors v0.2.1 h1:uMIfq8cC9+VhMMeFbvFz196mDx93r5bMyh5UNvNOqKM=
+github.com/pierrre/errors v0.2.1/go.mod h1:uTnPWUJFDsLhzQtkwOgXgjWVSf9E47oRV6PainbK1gQ=
 github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8 h1:KoWmjvw+nsYOo29YJK9vDA65RGE3NrOnUtO7a+RF9HU=
 github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8/go.mod h1:HKlIX3XHQyzLZPlr7++PzdhaXEj94dEiJgZDTsxEqUI=
 golang.org/x/sys v0.0.0-20210616045830-e2b7044e8c71 h1:X/2sJAybVknnUnV7AD2HdT6rm2p5BP6eH2j+igduWgk=
