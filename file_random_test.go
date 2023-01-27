@@ -4,7 +4,18 @@ import (
 	"io/fs"
 	"testing"
 	"testing/fstest"
+
+	"github.com/pierrre/assert"
+	"github.com/pierrre/assert/ext/davecghspew"
+	"github.com/pierrre/assert/ext/pierrrecompare"
+	"github.com/pierrre/assert/ext/pierrreerrors"
 )
+
+func init() {
+	pierrrecompare.Configure()
+	davecghspew.ConfigureDefault()
+	pierrreerrors.Configure()
+}
 
 func Test(t *testing.T) {
 	fsys := fstest.MapFS{
@@ -17,22 +28,14 @@ func Test(t *testing.T) {
 		},
 	}
 	fps, err := Get(WithFSs([]fs.FS{fsys}), WithMinSize(2))
-	if err != nil {
-		t.Fatal(err)
-	}
-	if len(fps) != 1 {
-		t.Fatalf("unexpected length: got %d, want %d", len(fps), 1)
-	}
+	assert.NoError(t, err)
+	assert.SliceLen(t, fps, 1)
 	fp := fps.GetRandom()
-	if fp.Path != "large" {
-		t.Fatalf("unexpected path: got %q, want %q", fp.Path, "large")
-	}
+	assert.Equal(t, fp.Path, "large")
 }
 
 func TestFilesGetRandomEmpty(t *testing.T) {
 	var fps Files
 	fp := fps.GetRandom()
-	if fp != nil {
-		t.Fatalf("unexpected file: got %v, want nil", fp)
-	}
+	assert.Zero(t, fp)
 }

@@ -1,6 +1,15 @@
+github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
+github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
+github.com/pierrre/assert v0.0.3 h1:EmG3Ezjn6+kr2ar/VMP8WSdGTUjuSy+g/GWAS2zG/Kk=
+github.com/pierrre/assert v0.0.3/go.mod h1:tfZH4FL6vW1Kq2Md1iR52h50gEz1cdCeHS/Mp11XnFw=
+github.com/pierrre/compare v1.1.0 h1:57z388tk9GXcyLnLXh1pMRdCQrfUH056x9dyNCCZZtg=
+github.com/pierrre/compare v1.1.0/go.mod h1:M3rK2sFL0CVhG43y3CWCmHBvBzhQ+vLGCKGuioJnokc=
 github.com/pierrre/errors v0.2.2 h1:CmykRMEADqTJO+yVbJewnTyMKinTgNQu2VZp8R4kYec=
 github.com/pierrre/errors v0.2.2/go.mod h1:uTnPWUJFDsLhzQtkwOgXgjWVSf9E47oRV6PainbK1gQ=
 github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8 h1:KoWmjvw+nsYOo29YJK9vDA65RGE3NrOnUtO7a+RF9HU=
 github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8/go.mod h1:HKlIX3XHQyzLZPlr7++PzdhaXEj94dEiJgZDTsxEqUI=
-golang.org/x/sys v0.0.0-20210616045830-e2b7044e8c71 h1:X/2sJAybVknnUnV7AD2HdT6rm2p5BP6eH2j+igduWgk=
+golang.org/x/exp v0.0.0-20230127130021-4ca2cb1a16b7 h1:o7Ps2IYdzLRolS9/nadqeMSHpa9k8pu8u+VKBFUG7cQ=
+golang.org/x/exp v0.0.0-20230127130021-4ca2cb1a16b7/go.mod h1:CxIveKay+FTh1D0yPZemJVgC/95VzuuOLq5Qi4xnoYc=
 golang.org/x/sys v0.0.0-20210616045830-e2b7044e8c71/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
+golang.org/x/sys v0.4.0 h1:Zr2JFtRQNX3BCZ8YtxRE9hNJYC8J6I1MVbMg6owUp18=
+golang.org/x/sys v0.4.0/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
