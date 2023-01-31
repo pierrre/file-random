@@ -3,14 +3,14 @@ module github.com/pierrre/file-random
 go 1.19
 
 require (
-	github.com/pierrre/assert v0.0.6
+	github.com/pierrre/assert v0.0.7
 	github.com/pierrre/errors v0.2.3
 	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8
 )
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/pierrre/compare v1.1.0 // indirect
+	github.com/pierrre/compare v1.1.1 // indirect
 	golang.org/x/exp v0.0.0-20230127193734-31bee513bff7 // indirect
 	golang.org/x/sys v0.4.0 // indirect
 )
