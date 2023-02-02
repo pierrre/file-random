@@ -7,20 +7,14 @@ import (
 	"io"
 	"io/fs"
 	"log"
-	"math/rand"
 	"os"
 	"path/filepath"
-	"time"
 
 	"github.com/pierrre/errors"
 	"github.com/pierrre/errors/errverbose"
 	filerandom "github.com/pierrre/file-random"
 	"github.com/pkg/browser"
 )
-
-func init() {
-	rand.Seed(time.Now().UnixNano())
-}
 
 func main() {
 	ctx := context.Background()
