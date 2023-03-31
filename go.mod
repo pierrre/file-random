@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/pierrre/assert v0.1.2
-	github.com/pierrre/errors v0.3.3
+	github.com/pierrre/errors v0.3.4
 	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8
 )
 
