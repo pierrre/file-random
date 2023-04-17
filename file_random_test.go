@@ -1,6 +1,7 @@
 package filerandom
 
 import (
+	"context"
 	"io/fs"
 	"testing"
 	"testing/fstest"
@@ -18,6 +19,7 @@ func init() {
 }
 
 func Test(t *testing.T) {
+	ctx := context.Background()
 	fsys := fstest.MapFS{
 		"empty": &fstest.MapFile{},
 		"small": &fstest.MapFile{
@@ -27,7 +29,7 @@ func Test(t *testing.T) {
 			Data: []byte("aaaaa"),
 		},
 	}
-	fps, err := Get(WithFSs([]fs.FS{fsys}), WithMinSize(2))
+	fps, err := Get(ctx, WithFSs([]fs.FS{fsys}), WithMinSize(2))
 	assert.NoError(t, err)
 	assert.SliceLen(t, fps, 1)
 	fp := fps.GetRandom()
