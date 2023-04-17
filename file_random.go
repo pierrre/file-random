@@ -2,6 +2,7 @@
 package filerandom
 
 import (
+	"context"
 	"io/fs"
 	"math/rand"
 
@@ -11,7 +12,7 @@ import (
 type options struct {
 	fss          []fs.FS
 	minSize      int64
-	errorHandler func(error)
+	errorHandler func(context.Context, error)
 }
 
 func newOptions(optfs ...Option) *options {
@@ -44,7 +45,7 @@ func WithMinSize(minSize int64) Option {
 // WithErrorHandler is an option that defines the error handler.
 //
 // If it is defined, the error handler is called for each error, otherwise the error is returned.
-func WithErrorHandler(f func(error)) Option {
+func WithErrorHandler(f func(context.Context, error)) Option {
 	return func(o *options) {
 		o.errorHandler = f
 	}
@@ -73,19 +74,19 @@ type File struct {
 }
 
 // Get returns a Getter.
-func Get(optfs ...Option) (Files, error) {
+func Get(ctx context.Context, optfs ...Option) (Files, error) {
 	opts := newOptions(optfs...)
-	fps, err := getFiles(opts)
+	fps, err := getFiles(ctx, opts)
 	if err != nil {
 		return nil, errors.Wrap(err, "get files")
 	}
 	return fps, nil
 }
 
-func getFiles(opts *options) ([]*File, error) {
+func getFiles(ctx context.Context, opts *options) ([]*File, error) {
 	var res Files
 	for fsysIdx, fsys := range opts.fss {
-		wdf := newWalkDirFunc(opts, &res, fsysIdx)
+		wdf := newWalkDirFunc(ctx, opts, &res, fsysIdx)
 		err := fs.WalkDir(fsys, ".", wdf)
 		if err != nil {
 			return nil, errors.Wrap(err, "walk dir")
@@ -94,12 +95,12 @@ func getFiles(opts *options) ([]*File, error) {
 	return res, nil
 }
 
-func newWalkDirFunc(opts *options, res *Files, fsysIdx int) fs.WalkDirFunc {
+func newWalkDirFunc(ctx context.Context, opts *options, res *Files, fsysIdx int) fs.WalkDirFunc {
 	return func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
 			if opts.errorHandler != nil {
 				err = errors.Wrap(err, "walk dir")
-				opts.errorHandler(err)
+				opts.errorHandler(ctx, err)
 				return nil
 			}
 			return errors.Wrap(err, "")
@@ -111,7 +112,7 @@ func newWalkDirFunc(opts *options, res *Files, fsysIdx int) fs.WalkDirFunc {
 		if err != nil {
 			err = errors.Wrap(err, "info")
 			if opts.errorHandler != nil {
-				opts.errorHandler(err)
+				opts.errorHandler(ctx, err)
 				return nil
 			}
 			return err

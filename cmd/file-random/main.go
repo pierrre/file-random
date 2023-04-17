@@ -6,7 +6,6 @@ import (
 	"context"
 	"io"
 	"io/fs"
-	"log"
 	"os"
 	"path/filepath"
 
@@ -14,26 +13,28 @@ import (
 	"github.com/pierrre/errors/errverbose"
 	filerandom "github.com/pierrre/file-random"
 	"github.com/pkg/browser"
+	"golang.org/x/exp/slog"
 )
 
 func main() {
 	ctx := context.Background()
 	fl := parseFlags()
-	l := log.Default()
+	l := slog.Default()
 	br := bufio.NewReader(os.Stdin)
 	waitEnter := func() {
-		l.Println("Press enter to continue")
+		l.Info("Press enter to continue")
 		_, _ = br.ReadString('\n')
 	}
 	err := run(ctx, fl, os.Stdout, l, browser.OpenFile, waitEnter)
 	if err != nil {
-		handleError(l.Fatalf, err)
+		handleError(ctx, l, err)
+		os.Exit(1)
 	}
 }
 
-func run(ctx context.Context, fl *flags, w io.Writer, l *log.Logger, openFile func(p string) error, waitEnter func()) error {
+func run(ctx context.Context, fl *flags, w io.Writer, l *slog.Logger, openFile func(p string) error, waitEnter func()) error {
 	optfs := buildOptions(fl, l)
-	fps, err := filerandom.Get(optfs...)
+	fps, err := filerandom.Get(ctx, optfs...)
 	if err != nil {
 		return errors.Wrap(err, "get")
 	}
@@ -53,7 +54,7 @@ func run(ctx context.Context, fl *flags, w io.Writer, l *log.Logger, openFile fu
 				if !fl.continueOnError {
 					return err
 				}
-				handleError(l.Printf, err)
+				handleError(ctx, l, err)
 			}
 		}
 		if !fl.loop {
@@ -64,7 +65,7 @@ func run(ctx context.Context, fl *flags, w io.Writer, l *log.Logger, openFile fu
 	return nil
 }
 
-func buildOptions(fl *flags, l *log.Logger) []filerandom.Option {
+func buildOptions(fl *flags, l *slog.Logger) []filerandom.Option {
 	var optfs []filerandom.Option
 	fsyss := make([]fs.FS, len(fl.roots))
 	for i, root := range fl.roots {
@@ -79,15 +80,15 @@ func buildOptions(fl *flags, l *log.Logger) []filerandom.Option {
 		optfs = append(optfs, filerandom.WithMinSize(fl.minSize))
 	}
 	if fl.continueOnError {
-		optfs = append(optfs, filerandom.WithErrorHandler(func(err error) {
+		optfs = append(optfs, filerandom.WithErrorHandler(func(ctx context.Context, err error) {
 			if fl.verbose {
-				handleError(l.Printf, err)
+				handleError(ctx, l, err)
 			}
 		}))
 	}
 	return optfs
 }
 
-func handleError(lf func(format string, v ...any), err error) {
-	lf("Error: %v", errverbose.Formatter(err))
+func handleError(ctx context.Context, l *slog.Logger, err error) {
+	l.LogAttrs(ctx, slog.LevelError, errverbose.String(err))
 }
