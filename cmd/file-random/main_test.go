@@ -31,7 +31,7 @@ func TestOK(t *testing.T) {
 	fl.roots = []string{path.Join(wd, "testdata")}
 	stdout := new(bytes.Buffer)
 	stderr := new(bytes.Buffer)
-	l := slog.New(slog.NewTextHandler(stderr))
+	l := slog.New(slog.NewTextHandler(stderr, nil))
 	err = run(ctx, fl, stdout, l, nil, nil)
 	assert.NoError(t, err)
 	expectedStdout := filepath.Join(wd, "testdata", "large") + "\n"
@@ -49,7 +49,7 @@ func TestOpenFile(t *testing.T) {
 	fl.roots = []string{path.Join(wd, "testdata")}
 	stdout := new(bytes.Buffer)
 	stderr := new(bytes.Buffer)
-	l := slog.New(slog.NewTextHandler(stderr))
+	l := slog.New(slog.NewTextHandler(stderr, nil))
 	openFileCalled := false
 	expectedPath := filepath.Join(wd, "testdata", "large")
 	openFile := func(p string) error {
@@ -76,7 +76,7 @@ func TestLoop(t *testing.T) {
 	fl.roots = []string{path.Join(wd, "testdata")}
 	stdout := new(bytes.Buffer)
 	stderr := new(bytes.Buffer)
-	l := slog.New(slog.NewTextHandler(stderr))
+	l := slog.New(slog.NewTextHandler(stderr, nil))
 	waitEnter := func() {
 		cancel()
 	}
@@ -97,7 +97,7 @@ func TestErrorOpenFile(t *testing.T) {
 	fl.roots = []string{path.Join(wd, "testdata")}
 	stdout := new(bytes.Buffer)
 	stderr := new(bytes.Buffer)
-	l := slog.New(slog.NewTextHandler(stderr))
+	l := slog.New(slog.NewTextHandler(stderr, nil))
 	openFile := func(p string) error {
 		return errors.New("error")
 	}
@@ -117,7 +117,7 @@ func TestErrorOpenFileContinue(t *testing.T) {
 	fl.roots = []string{path.Join(wd, "testdata")}
 	stdout := new(bytes.Buffer)
 	stderr := new(bytes.Buffer)
-	l := slog.New(slog.NewTextHandler(stderr))
+	l := slog.New(slog.NewTextHandler(stderr, nil))
 	openFile := func(p string) error {
 		return errors.New("error")
 	}
