@@ -6,6 +6,7 @@ import (
 	"context"
 	"io"
 	"io/fs"
+	"log/slog"
 	"os"
 	"path/filepath"
 
@@ -13,7 +14,6 @@ import (
 	"github.com/pierrre/errors/errverbose"
 	filerandom "github.com/pierrre/file-random"
 	"github.com/pkg/browser"
-	"golang.org/x/exp/slog"
 )
 
 func main() {
