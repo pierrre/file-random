@@ -9,16 +9,16 @@ import (
 	"testing"
 
 	"github.com/pierrre/assert"
-	"github.com/pierrre/assert/ext/davecghspew"
 	"github.com/pierrre/assert/ext/pierrrecompare"
 	"github.com/pierrre/assert/ext/pierrreerrors"
+	"github.com/pierrre/assert/ext/pierrrepretty"
 	"github.com/pierrre/errors"
 	"golang.org/x/exp/slog"
 )
 
 func init() {
 	pierrrecompare.Configure()
-	davecghspew.ConfigureDefault()
+	pierrrepretty.ConfigureDefault()
 	pierrreerrors.Configure()
 }
 
