@@ -9,7 +9,7 @@ require (
 )
 
 require (
-	github.com/pierrre/compare v1.1.5 // indirect
+	github.com/pierrre/compare v1.1.6 // indirect
 	github.com/pierrre/go-libs v0.2.10 // indirect
 	github.com/pierrre/pretty v0.0.7 // indirect
 	golang.org/x/sys v0.11.0 // indirect
