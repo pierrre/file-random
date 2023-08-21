@@ -3,7 +3,7 @@ module github.com/pierrre/file-random
 go 1.21
 
 require (
-	github.com/pierrre/assert v0.2.2
+	github.com/pierrre/assert v0.2.3
 	github.com/pierrre/errors v0.4.5
 	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8
 )
