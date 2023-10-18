@@ -10,17 +10,8 @@ import (
 	"testing"
 
 	"github.com/pierrre/assert"
-	"github.com/pierrre/assert/ext/pierrrecompare"
-	"github.com/pierrre/assert/ext/pierrreerrors"
-	"github.com/pierrre/assert/ext/pierrrepretty"
 	"github.com/pierrre/errors"
 )
-
-func init() {
-	pierrrecompare.Configure()
-	pierrrepretty.ConfigureDefault()
-	pierrreerrors.Configure()
-}
 
 func TestOK(t *testing.T) {
 	ctx := context.Background()
