@@ -35,14 +35,14 @@ func WithFSs(fsyss []fs.FS) Option {
 	}
 }
 
-// WithMinSize is an option that defines the minimum file size to consider.
+// WithMinSize is an [Option] that defines the minimum file size to consider.
 func WithMinSize(minSize int64) Option {
 	return func(o *options) {
 		o.minSize = minSize
 	}
 }
 
-// WithErrorHandler is an option that defines the error handler.
+// WithErrorHandler is an [Option] that defines the error handler.
 //
 // If it is defined, the error handler is called for each error, otherwise the error is returned.
 func WithErrorHandler(f func(context.Context, error)) Option {
@@ -73,7 +73,7 @@ type File struct {
 	Path string
 }
 
-// Get returns a Getter.
+// Get returns a [Files].
 func Get(ctx context.Context, optfs ...Option) (Files, error) {
 	opts := newOptions(optfs...)
 	fps, err := getFiles(ctx, opts)
