@@ -28,7 +28,7 @@ func newOptions(optfs ...Option) *options {
 // Option represents an option.
 type Option func(*options)
 
-// WithFSs is an option that defines the filesystems to scan.
+// WithFSs is an [Option] that defines the filesystems to scan.
 func WithFSs(fsyss []fs.FS) Option {
 	return func(o *options) {
 		o.fss = fsyss
