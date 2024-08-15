@@ -13,6 +13,7 @@ import (
 	"github.com/pierrre/errors"
 	"github.com/pierrre/errors/errverbose"
 	filerandom "github.com/pierrre/file-random"
+	"github.com/pierrre/go-libs/unsafeio"
 	"github.com/pkg/browser"
 )
 
@@ -45,8 +46,8 @@ func run(ctx context.Context, fl *flags, w io.Writer, l *slog.Logger, openFile f
 		fp := fps.GetRandom()
 		root := fl.roots[fp.FSIndex]
 		p := filepath.Join(root, fp.Path)
-		_, _ = io.WriteString(w, p)
-		_, _ = io.WriteString(w, "\n")
+		_, _ = unsafeio.WriteString(w, p)
+		_, _ = unsafeio.WriteString(w, "\n")
 		if fl.open {
 			err = openFile(p)
 			if err != nil {
