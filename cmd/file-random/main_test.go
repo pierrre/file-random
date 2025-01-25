@@ -27,7 +27,7 @@ func TestOK(t *testing.T) {
 	assert.NoError(t, err)
 	expectedStdout := filepath.Join(wd, "testdata", "large") + "\n"
 	assert.Equal(t, stdout.String(), expectedStdout)
-	assert.StringEmpty(t, stderr.String())
+	assert.Zero(t, stderr.String())
 }
 
 func TestOpenFile(t *testing.T) {
@@ -52,7 +52,7 @@ func TestOpenFile(t *testing.T) {
 	assert.NoError(t, err)
 	expectedStdout := expectedPath + "\n"
 	assert.Equal(t, stdout.String(), expectedStdout)
-	assert.StringEmpty(t, stderr.String())
+	assert.Zero(t, stderr.String())
 	assert.True(t, openFileCalled)
 }
 
@@ -75,7 +75,7 @@ func TestLoop(t *testing.T) {
 	assert.NoError(t, err)
 	expectedStdout := filepath.Join(wd, "testdata", "large") + "\n"
 	assert.Equal(t, stdout.String(), expectedStdout)
-	assert.StringEmpty(t, stderr.String())
+	assert.Zero(t, stderr.String())
 }
 
 func TestErrorOpenFile(t *testing.T) {
@@ -94,7 +94,7 @@ func TestErrorOpenFile(t *testing.T) {
 	}
 	err = run(ctx, fl, stdout, l, openFile, nil)
 	assert.Error(t, err)
-	assert.StringEmpty(t, stderr.String())
+	assert.Zero(t, stderr.String())
 }
 
 func TestErrorOpenFileContinue(t *testing.T) {
@@ -114,5 +114,5 @@ func TestErrorOpenFileContinue(t *testing.T) {
 	}
 	err = run(ctx, fl, stdout, l, openFile, nil)
 	assert.NoError(t, err)
-	assert.StringNotEmpty(t, stderr.String())
+	assert.NotZero(t, stderr.String())
 }
