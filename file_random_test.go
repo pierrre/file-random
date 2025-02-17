@@ -1,7 +1,6 @@
 package filerandom
 
 import (
-	"context"
 	"io/fs"
 	"testing"
 	"testing/fstest"
@@ -10,7 +9,7 @@ import (
 )
 
 func Test(t *testing.T) {
-	ctx := context.Background()
+	ctx := t.Context()
 	fsys := fstest.MapFS{
 		"empty": &fstest.MapFile{},
 		"small": &fstest.MapFile{

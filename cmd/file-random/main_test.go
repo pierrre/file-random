@@ -14,7 +14,7 @@ import (
 )
 
 func TestOK(t *testing.T) {
-	ctx := context.Background()
+	ctx := t.Context()
 	wd, err := os.Getwd()
 	assert.NoError(t, err)
 	fl := newFlags()
@@ -31,7 +31,7 @@ func TestOK(t *testing.T) {
 }
 
 func TestOpenFile(t *testing.T) {
-	ctx := context.Background()
+	ctx := t.Context()
 	wd, err := os.Getwd()
 	assert.NoError(t, err)
 	fl := newFlags()
@@ -57,7 +57,7 @@ func TestOpenFile(t *testing.T) {
 }
 
 func TestLoop(t *testing.T) {
-	ctx := context.Background()
+	ctx := t.Context()
 	ctx, cancel := context.WithCancel(ctx)
 	wd, err := os.Getwd()
 	assert.NoError(t, err)
@@ -79,7 +79,7 @@ func TestLoop(t *testing.T) {
 }
 
 func TestErrorOpenFile(t *testing.T) {
-	ctx := context.Background()
+	ctx := t.Context()
 	wd, err := os.Getwd()
 	assert.NoError(t, err)
 	fl := newFlags()
@@ -98,7 +98,7 @@ func TestErrorOpenFile(t *testing.T) {
 }
 
 func TestErrorOpenFileContinue(t *testing.T) {
-	ctx := context.Background()
+	ctx := t.Context()
 	wd, err := os.Getwd()
 	assert.NoError(t, err)
 	fl := newFlags()
