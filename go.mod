@@ -7,7 +7,7 @@ toolchain go1.24.1
 require (
 	github.com/pierrre/assert v0.8.2
 	github.com/pierrre/errors v0.10.1
-	github.com/pierrre/go-libs v0.12.0
+	github.com/pierrre/go-libs v0.12.1
 	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8
 )
 
