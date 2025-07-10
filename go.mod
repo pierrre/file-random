@@ -14,5 +14,5 @@ require (
 require (
 	github.com/pierrre/compare v1.4.13 // indirect
 	github.com/pierrre/pretty v0.18.6 // indirect
-	golang.org/x/sys v0.33.0 // indirect
+	golang.org/x/sys v0.34.0 // indirect
 )
