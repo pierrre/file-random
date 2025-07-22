@@ -23,7 +23,7 @@ func main() {
 	l := slog.Default()
 	br := bufio.NewReader(os.Stdin)
 	waitEnter := func() {
-		l.Info("Press enter to continue")
+		l.InfoContext(ctx, "Press enter to continue")
 		_, _ = br.ReadString('\n')
 	}
 	err := run(ctx, fl, os.Stdout, l, browser.OpenFile, waitEnter)
