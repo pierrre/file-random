@@ -6,8 +6,8 @@ github.com/pierrre/errors v0.15.1 h1:4Q2ox14KcN6VEC19rzWIOXrj0ZAxnE+6pLHeFgxfc/g
 github.com/pierrre/errors v0.15.1/go.mod h1:Oc5vQG0Qi7880oLkeBgNZgvlkt7b1M3t/XlXgj/lP1s=
 github.com/pierrre/go-libs v0.28.4 h1:k+E1fw87XILMSpeyuIEjsXutBzIHMlYq/lmnA93nSN0=
 github.com/pierrre/go-libs v0.28.4/go.mod h1:KXbqq+niFCQ48LPSjX2lKG1IdCoTBrTpurkVVDH2W8U=
-github.com/pierrre/pretty v0.23.0 h1:LYCkefa+DV87cu/xqUnPh75x1T0zXgnHvAn7wW+OgN0=
-github.com/pierrre/pretty v0.23.0/go.mod h1:ILYWjIqXAO9iLC2sDcHkgv2Vp0JIIKGMjRtwHAdOVAM=
+github.com/pierrre/pretty v0.23.1 h1:h9vzaZZRohdoMlY8qhC2/8tKQQF56SYywjRyhqLWtCU=
+github.com/pierrre/pretty v0.23.1/go.mod h1:qdoEsaFVLMWpr9koEWxfp5Eh+h3NlCUdj1BioLKvUks=
 github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8 h1:KoWmjvw+nsYOo29YJK9vDA65RGE3NrOnUtO7a+RF9HU=
 github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8/go.mod h1:HKlIX3XHQyzLZPlr7++PzdhaXEj94dEiJgZDTsxEqUI=
 golang.org/x/sys v0.0.0-20210616045830-e2b7044e8c71/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
