@@ -5,7 +5,7 @@ go 1.26.0
 require (
 	github.com/pierrre/assert v0.13.0
 	github.com/pierrre/errors v0.15.1
-	github.com/pierrre/go-libs v0.28.5
+	github.com/pierrre/go-libs v0.29.1
 	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8
 )
 
