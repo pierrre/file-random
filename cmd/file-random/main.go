@@ -1,4 +1,4 @@
-// Package file-duplicate provides a command-line tool to select random files.
+// Package file-random provides a command-line tool to select random files.
 package main
 
 import (
