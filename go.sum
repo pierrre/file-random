@@ -4,8 +4,8 @@ github.com/pierrre/compare v1.4.15 h1:ZYzDSe6D07cj54erJHXXBE2Ot9GPM5VnTOhVrvXe74
 github.com/pierrre/compare v1.4.15/go.mod h1:WHIREzz9xDNMzyIIp+RyZULubskCL/Vj6nnrd5Xwml8=
 github.com/pierrre/errors v0.15.6 h1:2BYcAIbzUQig5fXUlDwwbJi7VLMNDW0r6lwqHm+ZbS8=
 github.com/pierrre/errors v0.15.6/go.mod h1:WOTjMC6cjc9qFrSBMiZR+Pp0MwvGndOXklwfct2B1EQ=
-github.com/pierrre/go-libs v0.32.0 h1:2zP02OZAFQ1Hioyh256Suy6nOzBAlXrFaC72XNy82qM=
-github.com/pierrre/go-libs v0.32.0/go.mod h1:Vtw8//eTbfTiRGUA+YKdzILd1/6wlNsU6MIMvolg/+E=
+github.com/pierrre/go-libs v0.32.2 h1:xK54KSGoRbBokcgydkLL5TChvug6NTeFFC9ArBM6yBM=
+github.com/pierrre/go-libs v0.32.2/go.mod h1:Pm1oEutoPVifJPmMgvdm2MQcD6EU8AindBkEVG5mKh8=
 github.com/pierrre/pretty v0.25.0 h1:mSU4RlfHqLj7YXnIx0ZYC5v2vGW6R0Pqa6eucXMRZ8U=
 github.com/pierrre/pretty v0.25.0/go.mod h1:1+o8W7TMdMDO/r0AQfIQl+THViNxjTNzjHEe4PFh/ho=
 github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c h1:+mdjkGKdHQG3305AYmdv1U2eRNDiU2ErMBj1gwrq8eQ=
