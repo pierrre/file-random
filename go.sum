@@ -2,8 +2,8 @@ github.com/pierrre/assert v0.14.0 h1:2hc0qEEWyktoh/PyPVPyYihrSkEU6RdsrEc60LrpAvE
 github.com/pierrre/assert v0.14.0/go.mod h1:+5MI/gZOgHWt4v8SWoVWx9V4CN2xkQZaoJLD43SyMe0=
 github.com/pierrre/compare v1.4.15 h1:ZYzDSe6D07cj54erJHXXBE2Ot9GPM5VnTOhVrvXe74M=
 github.com/pierrre/compare v1.4.15/go.mod h1:WHIREzz9xDNMzyIIp+RyZULubskCL/Vj6nnrd5Xwml8=
-github.com/pierrre/errors v0.15.7 h1:5dprcTQQikmIGuJ2FdinoxLK9/Ehm38KJOPquO4N7Mc=
-github.com/pierrre/errors v0.15.7/go.mod h1:5wjp+Cqf36spLTWfgjFcA5nyMl0x+hmAUWBMwABieZQ=
+github.com/pierrre/errors v0.15.8 h1:l0N8JHMpisNeUHrNnC8Uho8e32KoHPeINJ66u7qX/MM=
+github.com/pierrre/errors v0.15.8/go.mod h1:5wjp+Cqf36spLTWfgjFcA5nyMl0x+hmAUWBMwABieZQ=
 github.com/pierrre/go-libs v0.32.4 h1:g1O7FpGdbKVXO0L5e8H0TZkgWLJnYvj8A8x2usi2dzs=
 github.com/pierrre/go-libs v0.32.4/go.mod h1:Pm1oEutoPVifJPmMgvdm2MQcD6EU8AindBkEVG5mKh8=
 github.com/pierrre/pretty v0.25.1 h1:yKQlh4QHwcQaLbBf/ljdlSQYzl9FxipXbRFmTS6WqOo=
