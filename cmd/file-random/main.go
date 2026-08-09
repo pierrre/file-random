@@ -68,14 +68,7 @@ func run(ctx context.Context, fl *flags, w io.Writer, l *slog.Logger, openFile f
 
 func buildOptions(fl *flags, l *slog.Logger) []filerandom.Option {
 	var optfs []filerandom.Option
-	fsyss := make([]fs.FS, len(fl.roots))
-	for i, root := range fl.roots {
-		root = filepath.Clean(root)
-		if root == "/" {
-			root = ""
-		}
-		fsyss[i] = os.DirFS(root)
-	}
+	fsyss := buildFSs(fl)
 	optfs = append(optfs, filerandom.WithFSs(fsyss))
 	if fl.minSize != 0 {
 		optfs = append(optfs, filerandom.WithMinSize(fl.minSize))
@@ -88,6 +81,15 @@ func buildOptions(fl *flags, l *slog.Logger) []filerandom.Option {
 		}))
 	}
 	return optfs
+}
+
+func buildFSs(fl *flags) []fs.FS {
+	fsyss := make([]fs.FS, len(fl.roots))
+	for i, root := range fl.roots {
+		root = filepath.Clean(root)
+		fsyss[i] = os.DirFS(root)
+	}
+	return fsyss
 }
 
 func handleError(ctx context.Context, l *slog.Logger, err error) {
