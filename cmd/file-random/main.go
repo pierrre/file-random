@@ -34,6 +34,9 @@ func main() {
 }
 
 func run(ctx context.Context, fl *flags, w io.Writer, l *slog.Logger, openFile func(p string) error, waitEnter func()) error {
+	if len(fl.roots) == 0 {
+		return errors.New("no roots specified")
+	}
 	optfs := buildOptions(fl, l)
 	fps, err := filerandom.Get(ctx, optfs...)
 	if err != nil {
