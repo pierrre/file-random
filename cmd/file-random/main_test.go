@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"context"
+	"io/fs"
 	"log/slog"
 	"os"
 	"path"
@@ -115,4 +116,14 @@ func TestErrorOpenFileContinue(t *testing.T) {
 	err = run(ctx, fl, stdout, l, openFile, nil)
 	assert.NoError(t, err)
 	assert.NotZero(t, stderr.String())
+}
+
+func TestBuildFSsRootSlash(t *testing.T) {
+	fl := newFlags()
+	fl.roots = []string{"/"}
+	fsyss := buildFSs(fl)
+	assert.SliceLen(t, fsyss, 1)
+	entries, err := fs.ReadDir(fsyss[0], ".")
+	assert.NoError(t, err)
+	assert.NotZero(t, len(entries))
 }
