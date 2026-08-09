@@ -31,3 +31,9 @@ func TestFilesGetRandomEmpty(t *testing.T) {
 	fp := fps.GetRandom()
 	assert.Zero(t, fp)
 }
+
+func TestWithMinSizePanicNegative(t *testing.T) {
+	assert.Panics(t, func() {
+		_ = WithMinSize(-1)
+	})
+}
