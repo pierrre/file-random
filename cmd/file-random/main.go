@@ -69,10 +69,7 @@ func run(ctx context.Context, fl *flags, w io.Writer, l *slog.Logger, openFile f
 func buildOptions(fl *flags, l *slog.Logger) []filerandom.Option {
 	var optfs []filerandom.Option
 	fsyss := buildFSs(fl)
-	optfs = append(optfs, filerandom.WithFSs(fsyss))
-	if fl.minSize != 0 {
-		optfs = append(optfs, filerandom.WithMinSize(fl.minSize))
-	}
+	optfs = append(optfs, filerandom.WithFSs(fsyss), filerandom.WithMinSize(fl.minSize))
 	if fl.continueOnError {
 		optfs = append(optfs, filerandom.WithErrorHandler(func(ctx context.Context, err error) {
 			if fl.verbose {
