@@ -156,3 +156,16 @@ func TestBuildOptionsMinSizeZero(t *testing.T) {
 	assert.SliceLen(t, fps, 3)
 	assert.Zero(t, stderr.String())
 }
+
+func TestErrorMinSizeNegative(t *testing.T) {
+	ctx := t.Context()
+	fl := newFlags()
+	fl.minSize = -1
+	stdout := new(bytes.Buffer)
+	stderr := new(bytes.Buffer)
+	l := slog.New(slog.NewTextHandler(stderr, nil))
+	err := run(ctx, fl, stdout, l, nil, nil)
+	assert.Error(t, err)
+	assert.Zero(t, stdout.String())
+	assert.Zero(t, stderr.String())
+}

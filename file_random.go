@@ -36,7 +36,12 @@ func WithFSs(fsyss []fs.FS) Option {
 }
 
 // WithMinSize is an [Option] that defines the minimum file size to consider.
+//
+// It panics if minSize is negative.
 func WithMinSize(minSize int64) Option {
+	if minSize < 0 {
+		panic("minSize must not be negative")
+	}
 	return func(o *options) {
 		o.minSize = minSize
 	}

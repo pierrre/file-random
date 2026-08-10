@@ -37,6 +37,9 @@ func run(ctx context.Context, fl *flags, w io.Writer, l *slog.Logger, openFile f
 	if len(fl.roots) == 0 {
 		return errors.New("no roots specified")
 	}
+	if fl.minSize < 0 {
+		return errors.New("min-size must not be negative")
+	}
 	optfs := buildOptions(fl, l)
 	fps, err := filerandom.Get(ctx, optfs...)
 	if err != nil {
