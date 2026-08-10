@@ -12,6 +12,7 @@ import (
 
 	"github.com/pierrre/assert"
 	"github.com/pierrre/errors"
+	filerandom "github.com/pierrre/file-random"
 )
 
 func TestOK(t *testing.T) {
@@ -126,4 +127,20 @@ func TestBuildFSsRootSlash(t *testing.T) {
 	entries, err := fs.ReadDir(fsyss[0], ".")
 	assert.NoError(t, err)
 	assert.NotZero(t, len(entries))
+}
+
+func TestBuildOptionsMinSizeZero(t *testing.T) {
+	ctx := t.Context()
+	wd, err := os.Getwd()
+	assert.NoError(t, err)
+	fl := newFlags()
+	fl.minSize = 0
+	fl.roots = []string{path.Join(wd, "testdata")}
+	stderr := new(bytes.Buffer)
+	l := slog.New(slog.NewTextHandler(stderr, nil))
+	optfs := buildOptions(fl, l)
+	fps, err := filerandom.Get(ctx, optfs...)
+	assert.NoError(t, err)
+	assert.SliceLen(t, fps, 3)
+	assert.Zero(t, stderr.String())
 }
