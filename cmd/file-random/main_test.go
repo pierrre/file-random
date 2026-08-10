@@ -119,6 +119,18 @@ func TestErrorOpenFileContinue(t *testing.T) {
 	assert.NotZero(t, stderr.String())
 }
 
+func TestErrorNoRoots(t *testing.T) {
+	ctx := t.Context()
+	fl := newFlags()
+	stdout := new(bytes.Buffer)
+	stderr := new(bytes.Buffer)
+	l := slog.New(slog.NewTextHandler(stderr, nil))
+	err := run(ctx, fl, stdout, l, nil, nil)
+	assert.Error(t, err)
+	assert.Zero(t, stdout.String())
+	assert.Zero(t, stderr.String())
+}
+
 func TestBuildFSsRootSlash(t *testing.T) {
 	fl := newFlags()
 	fl.roots = []string{"/"}
