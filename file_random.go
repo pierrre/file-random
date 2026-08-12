@@ -66,7 +66,7 @@ func (fps Files) GetRandom() *File {
 	if len(fps) == 0 {
 		return nil
 	}
-	i := rand.Intn(len(fps)) //nolint:gosec // It is ok to use a non-crypto random here.
+	i := rand.Intn(len(fps))
 	return fps[i]
 }
 
