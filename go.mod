@@ -1,6 +1,6 @@
 module github.com/pierrre/file-random
 
-go 1.26.0
+go 1.27.0
 
 require (
 	github.com/pierrre/assert v0.15.6
