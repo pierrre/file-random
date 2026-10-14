@@ -5,12 +5,12 @@ go 1.27.0
 require (
 	github.com/pierrre/assert v0.16.0
 	github.com/pierrre/errors v0.19.1
-	github.com/pierrre/go-libs v0.38.3
+	github.com/pierrre/go-libs v0.39.0
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 )
 
 require (
-	github.com/pierrre/compare v1.6.2 // indirect
+	github.com/pierrre/compare v1.6.3 // indirect
 	github.com/pierrre/pretty v0.26.9 // indirect
 	golang.org/x/sys v0.49.0 // indirect
 )
